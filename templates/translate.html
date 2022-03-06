@@ -1,0 +1,34 @@
+{% extends 'nav.html' %}
+{% block content %}
+<div class="container">
+    <form action="{% url 'translating' %}" method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-sm-6 mt-3 left">
+                <textarea class="form-control" name="sentence" id="sentence" rows="3">{{original}}</textarea>
+            </div>
+           
+             <div class="col-sm-6 mt-3 left">
+                <textarea class="form-control" name="value" id="value" rows="3">{{translated_word}}</textarea>
+
+                <label for="language_selection"> Select Language to Translate into : </label>
+                <select id="language_selection" name="language_selection" class="btn btn-primary">
+                    <option value="hi" class="dropdown-item" >Hindi</option>
+                    <option value="pa" class="dropdown-item">Punjabi</option>
+                    <option value="bn" class="dropdown-item">Bengali</option>
+                    <option value="mr" class="dropdown-item">Marathi</option>
+                    <option value="ta" class="dropdown-item">Telugu</option>
+                    <option value="gu" class="dropdown-item">Gujarati</option>
+                    <option value="ur" class="dropdown-item">Urdu</option>
+                    <option value="kn" class="dropdown-item">Kannada</option>
+                    <option value="or" class="dropdown-item">Odia</option>
+                    <option value="ml" class="dropdown-item">Malayalam</option>
+                </select>     
+                <br>
+
+                <input class="btn btn-primary" type="submit" name="submit">
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content %}

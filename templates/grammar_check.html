@@ -1,0 +1,18 @@
+{% extends 'nav.html' %}
+{% block content %}
+<div class="container">
+    <form action="{% url 'grammar_correction' %}" method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-sm-6 mt-3 left">
+                <textarea class="form-control" name="sentence" id="sentence" rows="3">{{old_sentence}}</textarea>
+            </div>
+            <div class="col-sm-6 mt-3 left">
+                <textarea class="form-control" name="value" id="value" rows="3">{{corrected}}</textarea>
+                <input class="btn btn-primary" type="submit" name="submit">
+            </div> 
+           </div>
+        </div>
+    </form>
+</div>
+{% endblock content %}
